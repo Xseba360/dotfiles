@@ -18,6 +18,9 @@ HISTFILE=~/.zsh_history
 autoload -Uz compinit
 compinit
 
+
+#COMPLETION
+
 zstyle ':completion:*' auto-description 'specify: %d'
 zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle ':completion:*' format 'Completing %d'
@@ -36,5 +39,26 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
+
+#coloUrs
+
 alias ls="ls --color"
 alias la="ls -al --color"
+
+
+# MINTTY STUFF
+
+
+# ctrl-left/right
+bindkey "\e[1;5C" forward-word
+bindkey "\e[1;5D" backward-word
+
+# ctrl-backspace/delete
+bindkey "\C-_" backward-kill-word
+bindkey "\e[3;5~" kill-word
+
+# alt-backspace
+
+bindkey "\e[3~" delete-char
+bindkey '\e[H' beginning-of-line
+bindkey '\e[F' end-of-line
